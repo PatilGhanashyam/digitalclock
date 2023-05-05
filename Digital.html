@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital clock</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        .main {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: orangered;
+            background-color: black;
+            font-size: 4.5rem;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+
+        <div class="time">
+            <span id="hrs"></span>:
+            <span id="mins"></span>:
+            <span id="sec"></span>:
+            <span id="mili"></span>
+        </div>
+
+        <div class="Date">
+            <span id="Day"></span> &nbsp;
+            <span id="Date"></span>-
+            <span id="month"></span>-
+            <span id="year"></span>
+        </div>
+
+        <script>
+            setInterval(() => {
+
+                var days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
+
+                var month = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT",
+                    "NOV", "DEC"];
+
+                var d = new Date();
+
+                //  Time
+                document.getElementById('hrs').innerHTML = d.getHours()
+                document.getElementById('mins').innerHTML = d.getMinutes()
+                document.getElementById('sec').innerHTML = d.getSeconds()
+                document.getElementById('mili').innerHTML = d.getMilliseconds()
+
+                // Date
+                document.getElementById('Day').innerHTML = days[d.getDay()];
+                document.getElementById('Date').innerHTML = d.getDate()
+                document.getElementById('month').innerHTML = month[d.getMonth()];
+                document.getElementById('year').innerHTML = d.getFullYear()
+
+        
+            }, 1000)
+        </script>
+</body>
+
+</html>
